@@ -2,14 +2,20 @@ import { Ionicons } from '@react-native-vector-icons/ionicons'
 import { Tabs } from 'expo-router'
 import React from 'react'
 
-import { Colors } from '@/constants/theme'
+import { colors } from '@/src/constants/theme'
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors.tint,
+        tabBarActiveTintColor: colors.tint,
         headerShown: false,
+        tabBarItemStyle: {
+          paddingVertical: 4,
+        },
+        tabBarLabelStyle: {
+          marginTop: 3,
+        },
       }}
     >
       <Tabs.Screen
@@ -17,7 +23,7 @@ export default function TabLayout() {
         options={{
           title: 'Account',
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="home" color={color} />
+            <Ionicons size={28} name="home-outline" color={color} />
           ),
         }}
       />
@@ -26,7 +32,7 @@ export default function TabLayout() {
         options={{
           title: 'Settings',
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="settings" color={color} />
+            <Ionicons size={28} name="cog-outline" color={color} />
           ),
         }}
       />
@@ -35,7 +41,7 @@ export default function TabLayout() {
         options={{
           title: 'Chat',
           tabBarIcon: ({ color }) => (
-            <Ionicons size={28} name="chatbox" color={color} />
+            <Ionicons size={28} name="chatbox-ellipses-outline" color={color} />
           ),
         }}
       />

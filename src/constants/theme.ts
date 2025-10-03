@@ -2,16 +2,19 @@ import { Platform } from 'react-native'
 
 const tintColorDark = '#fff'
 
-export const Colors = {
+export const colors = {
   text: '#ECEDEE',
-  background: '#151718',
+  secondaryText: '#b4b7b9',
+  errorText: '#FF453A',
+  bg: '#151718',
+  raisedBg: '#1f2324',
   tint: tintColorDark,
   icon: '#9BA1A6',
   tabIconDefault: '#9BA1A6',
   tabIconSelected: tintColorDark,
 }
 
-export const Fonts = Platform.select({
+export const fonts = Platform.select({
   ios: {
     /** iOS `UIFontDescriptorSystemDesignDefault` */
     sans: 'system-ui',
