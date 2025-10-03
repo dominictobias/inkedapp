@@ -1,13 +1,13 @@
 import { defaultWagmiConfig } from '@reown/appkit-wagmi-react-native'
-import { inkSepolia } from 'viem/chains'
+import { inkSepolia } from '@wagmi/core/chains'
 
 export const projectId = 'ff1484fd14faa2b9ca9252ccfea3c6d1'
 
 export const metadata = {
   name: 'InkDApp connect',
   description: 'Wallet connection for InkDApp',
-  url: 'https://reown.com/appkit',
-  icons: ['https://avatars.githubusercontent.com/u/179229932'],
+  url: 'https://inkonchain.com/',
+  icons: ['https://inkonchain.com/logo/ink-mark-dark.webp'],
   redirect: {
     native: 'inkdapp://',
     universal: 'inkdapp.com',

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextProps } from 'react-native'
 
-import { colors } from '@/src/constants/theme'
+import { colors } from '@/constants/theme'
 
 export function ThemedText({ style, ...otherProps }: TextProps) {
   return <Text style={[styles.base, style]} {...otherProps} />

@@ -11,7 +11,7 @@ import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { WagmiProvider } from 'wagmi'
 
-import { metadata, projectId, wagmiConfig } from '@/src/constants/wagmi-config'
+import { metadata, projectId, wagmiConfig } from '@/constants/wagmi-config'
 
 const queryClient = new QueryClient()
 

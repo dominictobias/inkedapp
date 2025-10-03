@@ -5,6 +5,7 @@ import { createJSONStorage, persist } from 'zustand/middleware'
 export interface Token {
   isNative: boolean
   address: string
+  name: string
   symbol: string
   decimals: number
   displayDecimals: number
@@ -23,6 +24,7 @@ const initialState: TokenState = {
     {
       isNative: true,
       address: '0x0000000000000000000000000000000000000000',
+      name: 'Sepolia Ether',
       symbol: 'ETH',
       decimals: 18,
       displayDecimals: 4,
@@ -30,6 +32,7 @@ const initialState: TokenState = {
     {
       isNative: false,
       address: '0x5F65358d61A9a281ea3BB930d05889ACa21E3f4f',
+      name: 'USDC',
       symbol: 'USDC',
       decimals: 6,
       displayDecimals: 2,

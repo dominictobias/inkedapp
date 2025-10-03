@@ -12,7 +12,6 @@ export function formatTokenBalance(
   const decimalValue = Number(remainder) / Number(divisor)
   const fullValue = Number(quotient) + decimalValue
 
-  // Use Intl.NumberFormat for proper formatting
   const formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0,
     maximumFractionDigits: displayDecimals,

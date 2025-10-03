@@ -7,8 +7,8 @@ import { disconnect } from '@wagmi/core'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-import { colors } from '@/src/constants/theme'
-import { wagmiConfig } from '@/src/constants/wagmi-config'
+import { colors } from '@/constants/theme'
+import { wagmiConfig } from '@/constants/wagmi-config'
 
 export default function SettingsScreen() {
   const { walletInfo } = useWalletInfo()
