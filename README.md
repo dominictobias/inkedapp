@@ -2,7 +2,7 @@
 
 This demonstrates a DApp connecting with a wallet via Wagmi+WalletConnect.
 
-[demo.mp4](./demo.mp4)
+![demo.mp4](./demo.mp4)
 
 ## Get started
 
