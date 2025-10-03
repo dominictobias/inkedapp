@@ -67,7 +67,13 @@ export default function HomeScreen() {
   const renderContent = () => {
     if (!walletInfo) {
       return (
-        <FlexGroup flex={1} gap={16} flexDirection="column" alignItems="center">
+        <FlexGroup
+          flex={1}
+          gap={16}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Text style={styles.leadText}>Connect a wallet to get started</Text>
           <AppKitButton />
         </FlexGroup>
