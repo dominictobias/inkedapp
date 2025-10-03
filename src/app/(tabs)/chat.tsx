@@ -13,6 +13,7 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
+import { FlexGroup } from '@/components'
 import { colors } from '@/constants/theme'
 import { useWebsocket } from '@/hooks/use-websocket'
 
@@ -76,7 +77,11 @@ export default function ChatScreen() {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
         <View style={styles.container}>
-          <View style={styles.header}>
+          <FlexGroup
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Text style={styles.title}>Chat</Text>
             <View style={styles.statusRow}>
               <View
@@ -87,7 +92,7 @@ export default function ChatScreen() {
               />
               <Text style={styles.statusText}>{connectionLabel}</Text>
             </View>
-          </View>
+          </FlexGroup>
 
           {error ? <Text style={styles.errorText}>{error.message}</Text> : null}
 
@@ -150,11 +155,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     gap: 12,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,
