@@ -2,7 +2,7 @@
 
 This demonstrates a DApp connecting with a wallet via Wagmi+WalletConnect.
 
-![demo.mp4](https://raw.githubusercontent.com/dominictobias/inkedapp/master/demo.mp4)
+![demo.mp4](https://raw.githubusercontent.com/dominictobias/inkedapp/main/demo.mp4)
 
 ## Get started
 
