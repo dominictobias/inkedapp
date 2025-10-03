@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   sendButtonText: {
-    color: '#ffffff',
+    color: colors.text,
     fontWeight: '600',
   },
 })

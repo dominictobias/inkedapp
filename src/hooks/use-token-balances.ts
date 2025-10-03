@@ -1,8 +1,9 @@
-import { wagmiConfig } from '../constants/wagmi-config'
-import { type Token } from '../store'
 import { getBalance } from '@wagmi/core'
 import { useCallback, useEffect, useState } from 'react'
 import { useAccount } from 'wagmi'
+
+import { wagmiConfig } from '@/constants/wagmi-config'
+import { type Token } from '@/store'
 
 export interface TokenBalance {
   token: Token
