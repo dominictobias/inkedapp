@@ -1,6 +1,6 @@
-import { FlashList } from '@shopify/flash-list'
 import { useCallback, useMemo, useState } from 'react'
 import {
+  FlatList,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -91,7 +91,7 @@ export default function ChatScreen() {
 
           {error ? <Text style={styles.errorText}>{error.message}</Text> : null}
 
-          <FlashList
+          <FlatList
             data={conversation}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={true}
