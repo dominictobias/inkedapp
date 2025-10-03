@@ -34,7 +34,10 @@ export default function HomeScreen() {
     usdc?.decimals ?? 6,
     {
       onSuccess: () => {
-        fetchBalances()
+        // Delay it to give the blockchain a chance
+        setTimeout(() => {
+          fetchBalances()
+        }, 1000)
       },
     },
   )
