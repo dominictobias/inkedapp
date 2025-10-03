@@ -2,6 +2,8 @@ import { FlashList } from '@shopify/flash-list'
 import { useCallback, useMemo, useState } from 'react'
 import {
   Keyboard,
+  KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
@@ -68,71 +70,77 @@ export default function ChatScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={['top']}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.title}>Chat</Text>
-          <View style={styles.statusRow}>
-            <View
-              style={[
-                styles.statusDot,
-                isConnected ? styles.dotOnline : styles.dotOffline,
-              ]}
-            />
-            <Text style={styles.statusText}>{connectionLabel}</Text>
-          </View>
-        </View>
-
-        {error ? <Text style={styles.errorText}>{error.message}</Text> : null}
-
-        <FlashList
-          data={conversation}
-          keyExtractor={item => item.id}
-          showsVerticalScrollIndicator={true}
-          renderItem={({ item }) => (
-            <TouchableWithoutFeedback
-              onPress={Keyboard.dismiss}
-              accessible={false}
-            >
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+      >
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <Text style={styles.title}>Chat</Text>
+            <View style={styles.statusRow}>
               <View
                 style={[
-                  styles.messageRow,
-                  item.remote ? styles.messageReceived : styles.messageSent,
+                  styles.statusDot,
+                  isConnected ? styles.dotOnline : styles.dotOffline,
                 ]}
-              >
-                <Text
-                  style={
-                    item.remote
-                      ? styles.messageTextReceived
-                      : styles.messageTextSent
-                  }
-                >
-                  {item.text}
-                </Text>
-              </View>
-            </TouchableWithoutFeedback>
-          )}
-        />
+              />
+              <Text style={styles.statusText}>{connectionLabel}</Text>
+            </View>
+          </View>
 
-        <View style={styles.inputRow}>
-          <TextInput
-            style={styles.input}
-            placeholder="Type a message"
-            placeholderTextColor={colors.secondaryText}
-            value={input}
-            onChangeText={setInput}
-            onSubmitEditing={onSend}
-            returnKeyType="send"
-            submitBehavior="blurAndSubmit"
+          {error ? <Text style={styles.errorText}>{error.message}</Text> : null}
+
+          <FlashList
+            data={conversation}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={true}
+            renderItem={({ item }) => (
+              <TouchableWithoutFeedback
+                onPress={Keyboard.dismiss}
+                accessible={false}
+              >
+                <View
+                  style={[
+                    styles.messageRow,
+                    item.remote ? styles.messageReceived : styles.messageSent,
+                  ]}
+                >
+                  <Text
+                    style={
+                      item.remote
+                        ? styles.messageTextReceived
+                        : styles.messageTextSent
+                    }
+                  >
+                    {item.text}
+                  </Text>
+                </View>
+              </TouchableWithoutFeedback>
+            )}
           />
-          <TouchableOpacity
-            style={styles.sendButton}
-            onPress={onSend}
-            disabled={!isConnected || !input.trim()}
-          >
-            <Text style={styles.sendButtonText}>Send</Text>
-          </TouchableOpacity>
+
+          <View style={styles.inputRow}>
+            <TextInput
+              style={styles.input}
+              placeholder="Type a message"
+              placeholderTextColor={colors.secondaryText}
+              value={input}
+              onChangeText={setInput}
+              onSubmitEditing={onSend}
+              returnKeyType="send"
+              submitBehavior="blurAndSubmit"
+            />
+            <TouchableOpacity
+              style={styles.sendButton}
+              onPress={onSend}
+              disabled={!isConnected || !input.trim()}
+            >
+              <Text style={styles.sendButtonText}>Send</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   )
 }
